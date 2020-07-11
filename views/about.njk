@@ -1,0 +1,23 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Sobre</title>
+{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+    <img src="{{about.avatar_url}}" alt="Imagem de {{about.name}}">
+    <h1>{{about.name}}</h1>
+    <h2>{{about.role}}</h2>
+</div>
+
+<div id="menubottom">
+
+    {% for link in about.links %}
+    <!-- target "_blank" faz com que o link seja aberto em outra aba -->
+    <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+    {% endfor %}
+</div>
+
+{% endblock %}

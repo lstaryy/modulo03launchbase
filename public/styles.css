@@ -1,0 +1,205 @@
+/* @import - para tirar link da fonte do html */
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap";
+
+/* :root - declarar variáveis globais */
+:root {
+    --color-green: #90cfa0;
+    --color-rocket: #7159c1;
+}
+
+/* seletor global */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #282a36;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+
+    padding: 32px;
+    border-bottom: 1px solid #333;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+header div {
+    text-align: center;
+}
+
+header div a {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 16px;
+    
+    /* shorthand para line style color thickness */
+    text-decoration: none;
+}
+
+/* seletor :hover - passar mouse por cima aplica propriedades */
+header div a:hover {
+    color: #50fa7b;
+    transition: color 400ms;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 80px 30px 80px;
+    margin: auto;
+}
+
+#wrapper img {
+    border-radius: 50% 25%;
+    width: 250px;
+    border: 5px solid var(--color-green);
+}
+
+#wrapper h1 {
+    font-weight: 700;
+    font-size: 42px;
+    padding: 15px;
+}
+
+#wrapper h2 {
+    font-weight: 400;
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+#menubottom {
+    display: flex;
+    justify-content: center;
+}
+
+#menubottom a {
+    
+    margin-right: 45px;
+    margin-left: 45px;
+    padding: 10px;
+    
+    text-decoration: none;
+    
+    background-color: var(--color-green);
+    color: #ffffff;
+
+    border-radius: 12px;
+    border: 2px solid var(--color-green);
+
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* seletor # para IDS */
+#menubottom a:hover {
+    border-color: white;
+    background-color: #60cc7b;
+    transition: background-color 500ms, border-color 500ms;
+}
+
+/* === CARDS === */
+
+.cards {
+    max-width: 800px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    /* espaço entre os itens das colunas */
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--color-rocket);
+    cursor: pointer;
+    display: grid;
+}
+
+.card__image-container img {
+    width: 100%;
+}
+
+.card__content,
+.card__info {
+    padding: 24px;
+}
+
+.card__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.card__price {
+    background-color: var(--color-rocket);
+
+    /* enfraquece a cor dinâmicamente (sempre que mudar a var da cor, a cor com essa propriedade fica 90% do brilho) */
+    filter: brightness(90%);
+    padding: 5px 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* === MODAL === */
+
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    
+    /* faz com que os botões invisiveis -por causa da opacidade- parem de funcionar */
+    visibility: hidden;
+}
+
+.modal {
+    background-color: white;
+    
+    /* trick para centralizar um objeto */
+    width: 90%;
+    height: 90%;
+    margin: 5vh auto;
+    
+    /* usa o tamanho do objeto setado para relative como o width máximo */
+    position: relative;
+}
+
+.modal .close-modal {
+    color: black;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    
+    /* adiciona o pointer quando quiser demonstrar que é um hyperlink */
+    /* utilizado quando não usamos a tag <a> para um link */
+    cursor: pointer;
+}
+
+/* === MODAL ACTIVE === */
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+iframe {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+}
